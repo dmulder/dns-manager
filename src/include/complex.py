@@ -12,7 +12,7 @@ from samba import NTSTATUSError, WERRORError
 from samba.net import Net
 from samba.credentials import Credentials
 from samba.dcerpc import nbt
-from adcommon.strings import strcasecmp
+from dnsmanager.strings import strcasecmp
 
 cldap_server = ''
 cldap_ret = None

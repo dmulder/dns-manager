@@ -1,7 +1,7 @@
-from adcommon.strings import strcmp
+from dnsmanager.strings import strcmp
 from libyui import *
-from adcommon.ui import CreateMenu, DeleteButtonBox
-from adcommon.creds import YCreds
+from dnsmanager.ui import CreateMenu, DeleteButtonBox
+from dnsmanager.creds import YCreds
 from samba.credentials import Credentials
 from samba.param import LoadParm
 from samba.net import Net
