@@ -7,12 +7,12 @@ from samba.param import LoadParm
 from samba.net import Net
 from samba.dcerpc import nbt
 from samba import NTSTATUSError
-from complex import Connection
+from dnsmanager.complex import Connection
 import re
 from samba.dcerpc import dnsp
 from ipaddress import ip_address, IPv4Address, IPv6Address, ip_network
 from socket import getaddrinfo, gaierror
-from complex import dns_type_flag, dns_type_name, format_data
+from dnsmanager.complex import dns_type_flag, dns_type_name, format_data
 
 class NameServer:
     def __init__(self, name='', ips=[]):

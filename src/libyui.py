@@ -1,3 +1,4 @@
+import sys, re
 import yui, yui_ext
 from abc import ABC, abstractmethod
 
@@ -6,8 +7,34 @@ def import_module(name):
 
 class ycpbuiltins(object):
     @staticmethod
-    def y2error(msg):
-        yui.YUILog_error(msg)
+    def __flatten_msg(*msg):
+        if len(msg[0]) > 1:
+            return re.sub(r'%\d+', r'%s', msg[0][0]) % tuple(msg[0][1:])
+        return msg[0][0]
+
+    @staticmethod
+    def y2debug(*msg):
+        sys.stderr.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
+
+    @staticmethod
+    def y2error(*msg):
+        sys.stderr.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
+
+    @staticmethod
+    def y2internal(*msg):
+        sys.stderr.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
+
+    @staticmethod
+    def y2milestone(*msg):
+        sys.stderr.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
+
+    @staticmethod
+    def y2security(*msg):
+        sys.stderr.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
+
+    @staticmethod
+    def y2warning(*msg):
+        sys.stdout.write('%s\n' % ycpbuiltins.__flatten_msg(msg))
 
 class Code(object):
     pass
@@ -239,7 +266,7 @@ class UI(object):
     def UserInput():
         event = UI.ds[-1].waitForEvent()
         ret = None
-        if event.widget():
+        if event.widget() and event.widget().id():
             ret = event.widget().id().toString()
         return ret
 
@@ -368,6 +395,8 @@ class Widget(ABC):
                 print('TODO: Handle default option')
             elif opt == 'immediate':
                 print('TODO: Handle immediate option')
+            elif opt == 'boldFont':
+                w.useBoldFont()
             else:
                 raise NotImplementedError('Type: %s, Option: %s' % (type(w), opt))
 

@@ -1,4 +1,4 @@
-from dialogs import DNS
+from dnsmanager.dialogs import DNS
 from libyui import Wizard, UI, Sequencer, Symbol
 
 def DNSSequence():

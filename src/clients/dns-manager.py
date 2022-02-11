@@ -1,7 +1,7 @@
 from libyui import ycpbuiltins
 import sys, traceback
 sys.path.append(sys.path[0]+"/../include/dns-manager")
-from wizards import DNSSequence
+from dnsmanager.wizards import DNSSequence
 
 if __name__ == "__main__":
     try:

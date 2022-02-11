@@ -1,6 +1,9 @@
 
 python_PYTHON = libyui.py
 
+dnslibdir = $(pythondir)/dnsmanager
+dnslib_DATA = include/*
+
 yui_ext_wrap.cxx: yui_ext.i yui_ext.h
 	$(SWIG) $(AX_SWIG_PYTHON_OPT) -c++ -I/usr/include/yui $(CPPFLAGS) -o $@ $<
 
