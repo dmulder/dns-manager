@@ -16,4 +16,6 @@ _yui_ext_la_CPPFLAGS = -I/usr/include/yui $(SWIG_PYTHON_CPPFLAGS) `${PYTHON}-con
 _yui_ext_la_LDFLAGS = -module
 _yui_ext_la_LIBADD = -lyui
 
+bin_SCRIPTS = clients/dns-manager
+
 CLEANFILES = yui_ext_wrap.cxx yui_ext.py
